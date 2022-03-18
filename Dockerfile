@@ -10,6 +10,9 @@ RUN echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/a
 RUN apt-get update
 RUN apt-get install -y kubectl
 
+# Install testkube plugin
+RUN curl -sSLf https://kubeshop.github.io/testkube/install.sh | bash
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
