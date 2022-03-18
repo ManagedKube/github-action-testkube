@@ -11,3 +11,7 @@ kubectl version
 kubectl get pods -A
 
 ls -l
+
+ls -l ./test/testkube/infra
+
+kubectl testkube run testsuite ./test/testkube/infra -f
