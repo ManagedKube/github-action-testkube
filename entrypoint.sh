@@ -7,3 +7,5 @@ echo "::set-output name=time::$time"
 aws eks update-kubeconfig --name ops
 
 kubectl version
+
+kubectl get pods -A
