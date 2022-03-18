@@ -14,4 +14,5 @@ ls -l
 
 ls -l ./test/testkube/infra
 
-kubectl testkube run testsuite ./test/testkube/infra -f
+cd ./test/testkube/infra
+kubectl testkube run testsuite infra -f
