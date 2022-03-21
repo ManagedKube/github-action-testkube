@@ -1,6 +1,7 @@
 #!/bin/sh -l
 
 set -e
+set -x
 
 TEST_SUITE_NAME=$1
 
