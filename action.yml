@@ -1,10 +1,10 @@
 name: 'testkube'
 description: 'Runs testkube'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  test-suite-name:
+    description: "The name of the test suite to run"
     required: true
-    default: 'World'
+    default: "infra-base"
   
 outputs:
   time: # id of output

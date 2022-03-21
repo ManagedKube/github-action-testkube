@@ -2,7 +2,9 @@
 
 set -e
 
-echo "Hello $1"
+TEST_SUITE_NAME=$1
+
+echo "Hello ${TEST_SUITE_NAME}"
 time=$(date)
 echo "::set-output name=time::$time"
 
@@ -12,4 +14,4 @@ kubectl version
 
 kubectl get pods -A
 
-kubectl testkube run testsuite infra -f
+kubectl testkube run testsuite ${TEST_SUITE_NAME} -f
