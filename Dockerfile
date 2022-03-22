@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM ubuntu:21.10
 
-RUN apt-get update && apt-get install -y apt-transport-https gnupg2 curl unzip
+RUN apt-get update && apt-get install -y apt-transport-https gnupg2 curl unzip jq
 
 # Install kubectl
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
