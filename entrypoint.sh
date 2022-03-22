@@ -20,7 +20,7 @@ kubectl testkube run testsuite ${TEST_SUITE_NAME} -f
 # Get last test status
 LAST_TEST_STATUS=$(kubectl testkube get testsuiteexecution -o json | jq -r '.results[0].status')
 
-if [[ "${LAST_TEST_STATUS}" == "error" ]]; then
+if [ "${LAST_TEST_STATUS}" == "error" ]; then
     exit 1
 else
     exit 0
