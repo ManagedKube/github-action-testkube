@@ -5,7 +5,11 @@ inputs:
     description: "The name of the test suite to run"
     required: true
     default: "infra-base"
-  
+  enable-debug:
+    description: "Enable debug output during the action run"
+    required: false
+    default: "false"
+
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -14,3 +18,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.test-suite-name }}
+    - ${{ inputs.enable-debug }}

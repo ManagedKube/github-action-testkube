@@ -1,9 +1,15 @@
 #!/bin/bash
 
-set -e
-set -x
-
 TEST_SUITE_NAME=$1
+ENABLE_DEBUG=$2
+
+set -e
+
+# Enable debugging output
+if [[ "${ENABLE_DEBUG}" == "true" ]]; then
+    set -x
+fi
+
 
 echo "Running TestSuite: ${TEST_SUITE_NAME}"
 time=$(date)
