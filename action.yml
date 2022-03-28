@@ -12,7 +12,7 @@ inputs:
   cluster-name:
     description: "Cluster name of test suite is hosted"
     required: true
-    default: "ops"
+    default: "env-name"
 
 outputs:
   time: # id of output
