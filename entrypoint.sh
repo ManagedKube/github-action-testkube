@@ -2,6 +2,7 @@
 
 TEST_SUITE_NAME=$1
 ENABLE_DEBUG=$2
+CLUSTER_NAME=$3
 
 set -e
 
@@ -15,7 +16,7 @@ echo "Running TestSuite: ${TEST_SUITE_NAME}"
 time=$(date)
 # echo "::set-output name=time::$time"
 
-aws eks update-kubeconfig --name ops
+aws eks update-kubeconfig --name ${CLUSTER_NAME}
 
 kubectl version
 
