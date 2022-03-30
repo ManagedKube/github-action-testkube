@@ -27,9 +27,6 @@ kubectl testkube run testsuite ${TEST_SUITE_NAME} -f
 LAST_TEST_STATUS=$(kubectl testkube get testsuiteexecution -o json | jq -r '.results[0].status')
 LAST_TEST_EXECUTION_LIST=$(kubectl testkube get testsuiteexecution -o json | jq -r '.results[0].execution')
 
-
-
-
 if [[ "${LAST_TEST_STATUS}" == "error" ]]; then
     # Error, output errors
 
