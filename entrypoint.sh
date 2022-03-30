@@ -11,7 +11,6 @@ if [[ "${ENABLE_DEBUG}" == "true" ]]; then
     set -x
 fi
 
-
 echo "Running TestSuite: ${TEST_SUITE_NAME}"
 time=$(date)
 # echo "::set-output name=time::$time"
@@ -47,6 +46,7 @@ if [[ "${LAST_TEST_STATUS}" == "error" ]]; then
     #         "type": "executeTest"
     #     }
     # ]
+    
     for row in $(echo "${LAST_TEST_EXECUTION_LIST}" | jq -r '.[] | @base64'); do
         _jq() {
             echo ${row} | base64 -d | jq -r ${1}
