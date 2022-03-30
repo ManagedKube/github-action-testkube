@@ -31,8 +31,8 @@ kubectl testkube run testsuite ${TEST_SUITE_NAME} -f
 LAST_TEST_STATUS=$(kubectl testkube get testsuiteexecution -o json | jq -r '.results[0].status')
 LAST_TEST_EXECUTION_LIST=$(kubectl testkube get testsuiteexecution -o json | jq -r '.results[0].execution')
 
-echo 'LAST_TEST_STATUS': ${LAST_TEST_STATUS}
-echo 'LAST_TEST_EXECUTION_LIST': ${LAST_TEST_EXECUTION_LIST}
+
+
 
 if [[ "${LAST_TEST_STATUS}" == "error" ]]; then
     # Error, output errors
@@ -53,7 +53,7 @@ if [[ "${LAST_TEST_STATUS}" == "error" ]]; then
     #         "type": "executeTest"
     #     }
     # ]
-    echo $(echo "${LAST_TEST_EXECUTION_LIST}" | jq -r '.[] | @base64')
+    
     for row in $(echo "${LAST_TEST_EXECUTION_LIST}" | jq -r '.[] | @base64'); do
         _jq() {
             echo ${row} | base64 -d | jq -r ${1}
