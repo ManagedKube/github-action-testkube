@@ -24,3 +24,4 @@ runs:
     - ${{ inputs.test-suite-name }}
     - ${{ inputs.enable-debug }}
     - ${{ inputs.cluster-name }}
+    - ${{ inputs.testkube-version }}
