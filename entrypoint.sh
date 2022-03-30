@@ -3,17 +3,13 @@
 TEST_SUITE_NAME=$1
 ENABLE_DEBUG=$2
 CLUSTER_NAME=$3
-TESTKUBE_VERSION=$4
+
 set -e
 
 # Enable debugging output
 if [[ "${ENABLE_DEBUG}" == "true" ]]; then
     set -x
 fi
-
-# Install testkube plugin
-echo "Installing testkube specific version"
-curl -sSLf https://kubeshop.github.io/testkube/install.sh | bash
 
 echo "Running TestSuite: ${TEST_SUITE_NAME}"
 time=$(date)

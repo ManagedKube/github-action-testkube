@@ -13,10 +13,6 @@ inputs:
     description: "Cluster name of test suite is hosted"
     required: true
     default: "env-name"
-  testkube-version:
-    description: "Specific version of https://github.com/kubeshop/testkube/releases"
-    required: true
-    default: "v0.11.5"
 
 outputs:
   time: # id of output
@@ -28,4 +24,3 @@ runs:
     - ${{ inputs.test-suite-name }}
     - ${{ inputs.enable-debug }}
     - ${{ inputs.cluster-name }}
-    - ${{ inputs.testkube-version }}
