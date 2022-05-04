@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y apt-transport-https gnupg2 curl unzip j
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 RUN echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list
 RUN apt-get update
-RUN apt-get install -y kubectl
+RUN apt-get install -y kubectl=1.23
 
 # Install testkube plugin - Specific version of https://github.com/kubeshop/testkube/releases
 ENV TESTKUBE_VERSION=1.0.14
