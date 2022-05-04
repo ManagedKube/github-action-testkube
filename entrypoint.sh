@@ -17,7 +17,7 @@ time=$(date)
 
 aws eks update-kubeconfig --name ${CLUSTER_NAME}
 
-kubectl version
+kubectl version --client=true
 
 kubectl get pods -A
 
