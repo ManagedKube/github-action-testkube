@@ -4,11 +4,6 @@ FROM ubuntu:21.10
 RUN apt-get update && apt-get install -y apt-transport-https gnupg2 curl unzip jq
 
 # Install kubectl
-#RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-#RUN echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list
-#RUN apt-get update
-#RUN apt-get install -y kubectl=1.23
-
 # doc: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 ENV KUBECTL_VERSION=v1.23.5
 RUN curl -LO https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl
