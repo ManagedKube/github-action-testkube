@@ -29,17 +29,7 @@ fi
 kubectl get pods -A
 
 # Run testkube
-kubectl testkube run testsuite ${TEST_SUITE_NAME}
-
-LAST_TEST_STATUS=$(kubectl testkube get testsuiteexecution -o json | jq -r '.results[0].status')
-
-# Wait until the test has finnished
-until [ $LAST_TEST_STATUS == "success" ]
-do
-  sleep 1
-  LAST_TEST_STATUS=$(kubectl testkube get testsuiteexecution -o json | jq -r '.results[0].status')
-  echo "LAST_TEST_STATUS: $LAST_TEST_STATUS"
-done
+kubectl testkube run testsuite ${TEST_SUITE_NAME} -f
 
 # Get last test status
 LAST_TEST_STATUS=$(kubectl testkube get testsuiteexecution -o json | jq -r '.results[0].status')
