@@ -10,7 +10,7 @@ RUN apt-get update
 RUN apt-get install -y kubectl
 
 # Install testkube plugin - Specific version of https://github.com/kubeshop/testkube/releases
-ENV TESTKUBE_VERSION=0.11.5
+ENV TESTKUBE_VERSION=1.0.14
 RUN curl -sSLf https://kubeshop.github.io/testkube/install.sh | bash
 
 # Install aws cli
