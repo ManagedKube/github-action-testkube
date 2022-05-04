@@ -19,7 +19,8 @@ ENV TESTKUBE_VERSION=1.0.14
 RUN curl -sSLf https://kubeshop.github.io/testkube/install.sh | bash
 
 # Install aws cli
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+ENV AWS_CLI_VERSION=2.5.6
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-$AWS_CLI_VERSION.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip
 RUN ./aws/install
 
