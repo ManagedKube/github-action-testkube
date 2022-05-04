@@ -10,7 +10,7 @@ set -e
 if [[ "${ENABLE_DEBUG}" == "true" ]]; then
     set -x
     aws --version
-    kubectl version --client=true
+    kubectl version
     kubectl testkube version
 fi
 
