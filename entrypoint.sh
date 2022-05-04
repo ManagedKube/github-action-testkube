@@ -15,12 +15,18 @@ echo "Running TestSuite: ${TEST_SUITE_NAME}"
 time=$(date)
 # echo "::set-output name=time::$time"
 
+# Get kubeconfig/auth
 aws eks update-kubeconfig --name ${CLUSTER_NAME}
 
-kubectl version
+# Enable debugging output
+if [[ "${ENABLE_DEBUG}" == "true" ]]; then
+    aws --version
+    kubectl version
+    kubectl testkube version
+    kubectl get pods -A
+fi
 
-kubectl get pods -A
-
+# Run testkube
 kubectl testkube run testsuite ${TEST_SUITE_NAME} -f
 
 # Get last test status
@@ -30,7 +36,7 @@ LAST_TEST_EXECUTION_LIST=$(kubectl testkube get testsuiteexecution -o json | jq 
 if [[ "${LAST_TEST_STATUS}" == "error" ]]; then
     # Error, output errors
 
-    # Loop through the last result's "execution" list to get the execution ID so that we can output the 
+    # Loop through the last result's "execution" list to get the execution ID so that we can output the
     # detailed info on that run
     # [
     #     {
@@ -46,7 +52,7 @@ if [[ "${LAST_TEST_STATUS}" == "error" ]]; then
     #         "type": "executeTest"
     #     }
     # ]
-    
+
     for row in $(echo "${LAST_TEST_EXECUTION_LIST}" | jq -r '.[] | @base64'); do
         _jq() {
             echo ${row} | base64 -d | jq -r ${1}
