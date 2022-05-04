@@ -29,7 +29,7 @@ fi
 kubectl get pods -A
 
 # Run testkube
-kubectl testkube run testsuite ${TEST_SUITE_NAME} -f
+kubectl testkube run testsuite ${TEST_SUITE_NAME}
 
 LAST_TEST_STATUS=$(kubectl testkube get testsuiteexecution -o json | jq -r '.results[0].status')
 
