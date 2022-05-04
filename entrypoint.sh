@@ -15,7 +15,11 @@ echo "Running TestSuite: ${TEST_SUITE_NAME}"
 time=$(date)
 # echo "::set-output name=time::$time"
 
+aws --version
+
 aws eks update-kubeconfig --name ${CLUSTER_NAME}
+
+cat ~/.kube/config
 
 kubectl version --client=true
 
