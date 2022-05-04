@@ -9,22 +9,22 @@ set -e
 # Enable debugging output
 if [[ "${ENABLE_DEBUG}" == "true" ]]; then
     set -x
+    aws --version
+    kubectl version --client=true
+    kubectl testkube version
 fi
 
 echo "Running TestSuite: ${TEST_SUITE_NAME}"
 time=$(date)
 # echo "::set-output name=time::$time"
 
-aws --version
-
+# Get kubeconfig/auth
 aws eks update-kubeconfig --name ${CLUSTER_NAME}
 
-cat ~/.kube/config
-
-kubectl version --client=true
-
+# List pods
 kubectl get pods -A
 
+# Run testkube
 kubectl testkube run testsuite ${TEST_SUITE_NAME} -f
 
 # Get last test status
