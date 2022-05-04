@@ -23,10 +23,8 @@ if [[ "${ENABLE_DEBUG}" == "true" ]]; then
     aws --version
     kubectl version
     kubectl testkube version
+    kubectl get pods -A
 fi
-
-# List pods
-kubectl get pods -A
 
 # Run testkube
 kubectl testkube run testsuite ${TEST_SUITE_NAME} -f
