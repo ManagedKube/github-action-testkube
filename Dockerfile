@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM ubuntu:21.10
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y apt-transport-https gnupg2 curl unzip jq
 
