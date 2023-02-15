@@ -23,6 +23,7 @@ if [[ "${ENABLE_DEBUG}" == "true" ]]; then
     aws --version
     kubectl version
     kubectl get pods -A
+    cat .kube/config
     kubectl testkube version
 fi
 
