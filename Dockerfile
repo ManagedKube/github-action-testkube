@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y apt-transport-https gnupg2 curl unzip j
 
 # Install kubectl
 # doc: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
-ENV KUBECTL_VERSION=v1.25.0
+ENV KUBECTL_VERSION=v1.23.5
 RUN curl -LO https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl
 RUN chmod 755 ./kubectl
 RUN mv kubectl /usr/local/bin/kubectl
