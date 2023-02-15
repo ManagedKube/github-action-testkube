@@ -22,8 +22,8 @@ aws eks update-kubeconfig --name ${CLUSTER_NAME}
 if [[ "${ENABLE_DEBUG}" == "true" ]]; then
     aws --version
     kubectl version
-    kubectl testkube version
     kubectl get pods -A
+    kubectl testkube version
 fi
 
 # Run testkube
