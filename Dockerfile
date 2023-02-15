@@ -11,7 +11,7 @@ RUN chmod 755 ./kubectl
 RUN mv kubectl /usr/local/bin/kubectl
 
 # Install testkube plugin - Specific version of https://github.com/kubeshop/testkube/releases
-ENV TESTKUBE_VERSION=1.0.14  
+ENV TESTKUBE_VERSION=1.0.14
 RUN curl -sSLf https://kubeshop.github.io/testkube/install.sh | bash
 
 # Install aws cli
