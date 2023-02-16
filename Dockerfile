@@ -12,7 +12,7 @@ RUN mv kubectl /usr/local/bin/kubectl
 
 # Install testkube plugin - Specific version of https://github.com/kubeshop/testkube/releases
 ENV TESTKUBE_VERSION=1.9.13
-RUN curl -sSLf https://kubeshop.github.io/testkube/install.sh | bash
+RUN curl -sSLf https://get.testkube.io | sh
 
 # Install aws cli
 ENV AWS_CLI_VERSION=2.9.23
