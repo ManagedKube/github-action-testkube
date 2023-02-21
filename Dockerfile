@@ -5,17 +5,20 @@ RUN apt-get update && apt-get install -y apt-transport-https gnupg2 curl unzip j
 
 # Install kubectl
 # doc: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
-ENV KUBECTL_VERSION=v1.23.5
+ENV KUBECTL_VERSION=v1.23.14
 RUN curl -LO https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl
 RUN chmod 755 ./kubectl
 RUN mv kubectl /usr/local/bin/kubectl
 
 # Install testkube plugin - Specific version of https://github.com/kubeshop/testkube/releases
-ENV TESTKUBE_VERSION=1.0.14
-RUN curl -sSLf https://kubeshop.github.io/testkube/install.sh | bash
+ENV TESTKUBE_VERSION=1.9.13
+
+# Note: the new url (https://get.testkube.io) is pointing to https://raw.githubusercontent.com/kubeshop/testkube/main/install.sh 
+# where is using TESTKUBE_VERSION environment variable where you can handle Which version do you want.
+RUN curl -sSLf https://get.testkube.io | sh
 
 # Install aws cli
-ENV AWS_CLI_VERSION=2.5.6
+ENV AWS_CLI_VERSION=2.9.23
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-$AWS_CLI_VERSION.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip
 RUN ./aws/install
