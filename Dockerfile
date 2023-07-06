@@ -10,12 +10,20 @@ RUN curl -LO https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl
 RUN chmod 755 ./kubectl
 RUN mv kubectl /usr/local/bin/kubectl
 
+
+# Helm installation
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+RUN chmod 700 get_helm.sh
+RUN ./get_helm.sh
+
 # Install testkube plugin - Specific version of https://github.com/kubeshop/testkube/releases
-ENV TESTKUBE_VERSION=v1.9.13
+ENV TESTKUBE_VERSION=v1.12.13
 
 # Note: the new url (https://get.testkube.io) is pointing to https://raw.githubusercontent.com/kubeshop/testkube/main/install.sh 
 # where is using TESTKUBE_VERSION environment variable where you can handle Which version do you want.
-RUN curl -sSLf https://get.testkube.io | sh
+RUN curl -fsSL -o testkube.sh https://raw.githubusercontent.com/kubeshop/testkube/main/install.sh
+RUN chmod 700 install.sh
+RUN ./install.sh
 
 # Install aws cli
 ENV AWS_CLI_VERSION=2.9.23
