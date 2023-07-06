@@ -21,7 +21,7 @@ ENV TESTKUBE_VERSION=v1.12.13
 
 # Note: the new url (https://get.testkube.io) is pointing to https://raw.githubusercontent.com/kubeshop/testkube/main/install.sh 
 # where is using TESTKUBE_VERSION environment variable where you can handle Which version do you want.
-RUN curl -fsSL -o testkube.sh https://raw.githubusercontent.com/kubeshop/testkube/main/install.sh
+RUN curl -fsSL -o install.sh https://raw.githubusercontent.com/kubeshop/testkube/main/install.sh
 RUN chmod 700 install.sh
 RUN ./install.sh
 
