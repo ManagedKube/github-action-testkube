@@ -16,14 +16,11 @@ RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/s
 RUN chmod 700 get_helm.sh
 RUN ./get_helm.sh
 
-# Install testkube plugin - Specific version of https://github.com/kubeshop/testkube/releases
-ENV TESTKUBE_VERSION=v1.12.13
-
 # Note: the new url (https://get.testkube.io) is pointing to https://raw.githubusercontent.com/kubeshop/testkube/main/install.sh 
 # where is using TESTKUBE_VERSION environment variable where you can handle Which version do you want.
 RUN curl -fsSL -o install.sh https://raw.githubusercontent.com/kubeshop/testkube/main/install.sh
-RUN chmod 700 install.sh
-RUN TESTKUBE_VERSION=v1.12.13 ./install.sh
+RUN chmod +x install.sh
+RUN TESTKUBE_VERSION=v1.12.13 bash ./install.sh
 
 # Install aws cli
 ENV AWS_CLI_VERSION=2.9.23
