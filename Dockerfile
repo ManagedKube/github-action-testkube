@@ -23,7 +23,7 @@ ENV TESTKUBE_VERSION=v1.12.13
 # where is using TESTKUBE_VERSION environment variable where you can handle Which version do you want.
 RUN curl -fsSL -o install.sh https://raw.githubusercontent.com/kubeshop/testkube/main/install.sh
 RUN chmod 700 install.sh
-RUN ./install.sh
+RUN TESTKUBE_VERSION=v1.12.13 ./install.sh
 
 # Install aws cli
 ENV AWS_CLI_VERSION=2.9.23
